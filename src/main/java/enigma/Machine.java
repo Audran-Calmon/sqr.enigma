@@ -7,35 +7,36 @@ public class Machine {
 	private Rotor rightRotor;
 	private Reflector reflector;
 
-	public void initRotors(Reflector reflector, Rotor left, Rotor middle, Rotor right) {
-		this.reflector = reflector;
-		leftRotor = left;
-		middleRotor = middle;
-		rightRotor = right;
+	public void initRotors(Reflector reflector, Rotor left, Rotor middle, Rotor right) {    // Cette fonction initialise les  3 rotor de la machine
+		this.reflector = reflector;                                                     // ainsi que le reflector
+		leftRotor = left;                                                               //
+		middleRotor = middle;                                                           //
+		rightRotor = right;                                                             //
 	}
 
-	public void setPositions(String setting) {
-		char[] charSettings = setting.toCharArray();
-		reflector.setPosition(Rotor.toIndex(charSettings[0]));
-		leftRotor.setPosition(Rotor.toIndex(charSettings[1]));
-		middleRotor.setPosition(Rotor.toIndex(charSettings[2]));
-		rightRotor.setPosition(Rotor.toIndex(charSettings[3]));
+	public void setPositions(String setting) {                              // cette fonction défini la position initiale de chaque rotor
+		char[] charSettings = setting.toCharArray();                    //
+		reflector.setPosition(Rotor.toIndex(charSettings[0]));          //
+		leftRotor.setPosition(Rotor.toIndex(charSettings[1]));          //
+		middleRotor.setPosition(Rotor.toIndex(charSettings[2]));        //
+		rightRotor.setPosition(Rotor.toIndex(charSettings[3]));         //
 	}
 	
-	public void configure(Reflector reflector, Rotor left, Rotor middle, Rotor right, String setting) {
-		this.initRotors(reflector, left, middle, right);
+	public void configure(Reflector reflector, Rotor left, Rotor middle, Rotor right, String setting) { //C'est la fonctione appelée depuis le main
+		this.initRotors(reflector, left, middle, right);                                            //Elle appelle les fonctions d'initialisation des rotors et des positions
 		this.setPositions(setting);
 
 	}
 
-	public String convert(String msg) {
-		msg = msg.toUpperCase();
-		char[] msgChars = msg.toCharArray();
-		String result = "";
-		for (char c : msgChars) {
-			result += convertChar(c);
-		}
-		return result;
+	public String convert(String msg) {                                     //Ceci est la fonction qui code le message
+		msg = msg.toUpperCase();                                        //celle ligne met tous les caractères du message en majuscules
+                
+		char[] msgChars = msg.toCharArray();                            //Ces 5 prochaines lignes Enregistrent le message en enlavant les espaces
+		String result = "";                                             //
+		for (char c : msgChars) {                                       //
+			result += convertChar(c);                               //
+		}                                                               //
+		return result;                                                  //Puis cette ligne renvoie le message en majuscule sans espaces.
 	}
 
 	char convertChar(char c) {
