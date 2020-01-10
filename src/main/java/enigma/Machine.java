@@ -14,7 +14,7 @@ public class Machine {
 		rightRotor = right;                                                             //
 	}
 
-	public void setPositions(String setting) {                              // cette fonction défini la position initiale de chaque rotor
+	public void setPositions(String setting) {                              //Cette fonction défini la position initiale de chaque rotor
 		char[] charSettings = setting.toCharArray();                    //
 		reflector.setPosition(Rotor.toIndex(charSettings[0]));          //
 		leftRotor.setPosition(Rotor.toIndex(charSettings[1]));          //
