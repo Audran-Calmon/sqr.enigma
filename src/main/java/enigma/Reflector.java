@@ -8,12 +8,12 @@ public class Reflector extends Rotor {
 	int[] reflection;
 	
 	public static Reflector reflectorFactory(String str){
-		char[] s = str.trim().replace(" ", "").toCharArray();
-		int[] cipher = new int[26];
-		for (int i = 0; i< 26; i++){
-			cipher[i] = toIndex(s[i]);
+		char[] s = str.trim().replace(" ", "").toCharArray();           //Cette ligne enlève les espaces entre les mots du message
+		int[] cipher = new int[26];                                     //création du tableau d'entiers cipher
+		for (int i = 0; i< 26; i++){                                    //
+			cipher[i] = toIndex(s[i]);                              //
 		}
-		return new Reflector(cipher);
+		return new Reflector(cipher);                                   //renvoie de cipher
 	}
 	
 	Reflector(int[] r){
@@ -21,7 +21,7 @@ public class Reflector extends Rotor {
 		reflection = r;
 	}
         
-    public int convertForward(int p) {
+    public int convertForward(int p) {                                          //cette fonction convertie je ne sais quoi
         return ((reflection[((p)%26+26)%26])%26+26)%26;
     }
 
